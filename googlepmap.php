@@ -27,7 +27,7 @@ function d6s_map() {
     
     /* Enques the above scripts that have been registered otherwise they wont actually load */
     wp_enqueue_script('d6sgooglemaps');
-     wp_enqueue_script('d6spolyfill');
+    wp_enqueue_script('d6spolyfill');
     wp_enqueue_script('d6sscript');
   
 }
