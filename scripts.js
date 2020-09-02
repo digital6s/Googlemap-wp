@@ -1,3 +1,5 @@
+jQuery.noConflict();
+
 // JS for Google Map with Custom Style obtained https://mapstyle.withgoogle.com/
 
 // Function to create the map
@@ -311,5 +313,5 @@ function initMap() {
       
 }  //ends function initMap 
   
-// Create a DOM event to tell the site to load the createmap function when it finds <div id="mymap"></div> on the web page 
+// Create a DOM event to tell the site to load the createmap function when it finds <div id="put-map"></div> on the web page 
 google.maps.event.addDomListener( window, 'load', initMap );
