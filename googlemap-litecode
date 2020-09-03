@@ -18,33 +18,25 @@
 function d6s_map() { 
       /*  Registers the google maps Java Script API and loads into the <head> as the last arg is set to true */
       /* ----> ACTION REQUIRED: Need to update with own API replacing YOURAPIKEY */
-        // at the end of script source the callback-initMap, the js function used with this source must  be called initMap
-       wp_register_script('d6sgooglemaps', 'https://maps.googleapis.com/maps/api/js?v=3.40&key=AIzaSyDmq07g7OC3hBDDM_r5oexrdOVAu6uxhE8&callback=initMap', '', '', true);
+      // at the end of script source the callback-initMap, the js function used with this source must  be called initMap
+      wp_register_script('d6sgooglemaps', 'https://maps.googleapis.com/maps/api/js?v=3.40&key=AIzaSyDmq07g7OC3hBDDM_r5oexrdOVAu6uxhE8&callback=initMap', '', '', true);
  
       /*  Registers some code from pollyfill.io - not sure what this does it was in the Night Mode HTML code */
-  
       wp_register_script('d6spolyfill', 'https://polyfill.io/v3/polyfill.min.js?features=default', '', '', true);
  
       /*  Registers the scripts.js file that includes the styling and locatiopn information about the google map. */
-    wp_register_script( 'd6sscript',  plugin_dir_url( __FILE__ ) . 'js/scripts.js' );
-    /*  Registers the style.css file that includes the element css styling (not the json map styling that is in the js file) */
+      wp_register_script( 'd6sscript',  plugin_dir_url( __FILE__ ) . 'js/scripts.js' );
+      
+      /*  Registers the style.css file that includes the element css styling (not the json map styling that is in the js file) */
       wp_register_style( 'd6sstyle',  plugin_dir_url( __FILE__ ) . 'css/style.css' );
     
-        /* Enques the above scripts that have been registered otherwise they wont actually load */
+        /* Enques each of the above scripts that have been registered otherwise they wont actually load */
         wp_enqueue_script('d6sgooglemaps');
         wp_enqueue_script('d6spolyfill');
         wp_enqueue_script('d6sscript');
-    wp_enqueue_style('d6sstyle');
+        wp_enqueue_style('d6sstyle');
   
 }
 
-// Runs the function 
+// Now we need to run the function that registers and enques the scrips 
 add_action('wp_enqueue_scripts', 'd6s_map');
-
-
-
-function add_my_scripts() {
-    wp_enqueue_script( 'jquery' );
-    //wp_enqueue_script( 'my_init_script', SCRIPTSRC, 'jquery', '1.0' );
-}
-add_action( 'init', 'add_my_scripts' );
