@@ -1,0 +1,10 @@
+/*
+ * css for plugin
+ */
+
+
+/* Google Map CSS Styling */ 
+#map {
+    height:400px;
+    width:300px;
+}
